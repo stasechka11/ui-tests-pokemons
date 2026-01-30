@@ -2,6 +2,7 @@ package com.example.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -30,17 +31,17 @@ public class LoginPage {
 
     //Ввести логин
     public LoginPage enterUsername(String username) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput))
-                .clear();
-        driver.findElement(usernameInput).sendKeys(username);
+        WebElement loginInputEl = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameInput));
+        loginInputEl.clear();
+        loginInputEl.sendKeys(username);
         return this;
     }
 
     //Ввести пароль
     public LoginPage enterPassword(String password) {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput))
-                .clear();
-        driver.findElement(usernameInput).sendKeys(password);
+        WebElement passInputEl = wait.until(ExpectedConditions.visibilityOfElementLocated(passwordInput));
+        passInputEl.clear();
+        passInputEl.sendKeys(password);
         return this;
     }
 
